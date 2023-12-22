@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class ConfiguracionService {
 
-  private ordenar:boolean = false 
+  private _ordenar:boolean = false 
 
   constructor() { }
 
   ordenarRegistros():boolean {
-    return this.ordenar
+    return this._ordenar
+  }
+
+  setOrdenarRegistros(ordenar:boolean) {
+    this._ordenar = ordenar
   }
 }
