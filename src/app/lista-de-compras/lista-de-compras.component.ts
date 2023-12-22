@@ -23,10 +23,16 @@ export class ListaDeComprasComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("ListaDeComprasComponent::ngOnInit")    
+  }
+
+  ionViewWillEnter():void {
+    console.log("ListaDeComprasComponent::ionViewWillEnter")
     this.actualizar()
   }
 
   actualizar() {
+    console.log("actualizando...")
     this.ordenarAlfabeticamente = this.configuracionService.ordenarRegistros()
     if( this.ordenarAlfabeticamente ) {
       this.productos = this.productoService.getProductosOrdenadosAlfabeticamente() 

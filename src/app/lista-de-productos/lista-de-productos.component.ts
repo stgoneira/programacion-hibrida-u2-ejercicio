@@ -19,7 +19,13 @@ export class ListaDeProductosComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("ListaDeProductosComponent::ngOnInit()")
+  }
+
+  ionViewWillEnter() {
+    console.log("ListaDeProductosComponent::ionViewWillEnter()")
+  }
 
   onCompradoChange(p:Producto, $event: IonCheckboxCustomEvent<CheckboxChangeEventDetail<any>>) {
     const comprado = $event.detail.checked 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { IonButtons, IonButton, IonIcon, 
          IonHeader, IonToolbar, IonTitle, IonContent } 
                     from '@ionic/angular/standalone'
@@ -15,10 +15,19 @@ import { RouterModule } from '@angular/router'
   imports: [ListaDeComprasComponent, RouterModule, IonHeader, IonToolbar, IonTitle, IonContent, 
             IonButtons, IonButton, IonIcon],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  @ViewChild(ListaDeComprasComponent) listaDeComprasComponent!:ListaDeComprasComponent
+
   constructor() {
     addIcons({
       settingsOutline
     })
+  }
+  ngOnInit(): void {
+    console.log("HomePage::ngOnInit")
+  }
+  ionViewWillEnter():void {
+    console.log("HomePage::ionViewWillEnter")
+    this.listaDeComprasComponent.ionViewWillEnter() 
   }
 }
