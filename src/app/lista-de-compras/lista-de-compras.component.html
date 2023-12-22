@@ -1,2 +1,2 @@
-<app-formulario-producto />
-<app-lista-de-productos />
+<app-formulario-producto (onProductoAgregado)="agregarProducto($event)" />
+<app-lista-de-productos [productos]="productos" (onChange)="onProductoChange($event)" />
