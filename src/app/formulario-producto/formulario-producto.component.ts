@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { IonList, IonItem, IonInput, IonButton, IonIcon } from '@ionic/angular/standalone'
 import { addIcons } from 'ionicons'
 import { addCircleOutline } from 'ionicons/icons'
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-formulario-producto',
   templateUrl: './formulario-producto.component.html',
   styleUrls: ['./formulario-producto.component.scss'],
   standalone: true,
-  imports: [IonList, IonItem, IonInput, IonButton, IonIcon]
+  imports: [FormsModule, IonList, IonItem, IonInput, IonButton, IonIcon]
 })
 export class FormularioProductoComponent  implements OnInit {
+
+  producto:string = ""
+  @Output() onProductoAgregado = new EventEmitter<string>()
 
   constructor() { 
     addIcons({
@@ -20,4 +24,8 @@ export class FormularioProductoComponent  implements OnInit {
 
   ngOnInit() {}
 
+  agregarProducto() {
+    this.onProductoAgregado.emit(this.producto)
+    this.producto = ""
+  }
 }
