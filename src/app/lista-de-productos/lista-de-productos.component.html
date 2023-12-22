@@ -1,3 +1,9 @@
-<p>
-  lista-de-productos works!
-</p>
+<ion-list>
+  <ion-item *ngFor="let p of productos">
+    <ion-label>
+      <s *ngIf="p.comprado">{{ p.nombre }}</s>
+      <span *ngIf="!p.comprado">{{ p.nombre }}</span>
+    </ion-label>
+    <ion-checkbox [checked]="p.comprado" slot="end" aria-label="comprado" />
+  </ion-item>  
+</ion-list>
