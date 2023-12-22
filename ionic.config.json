@@ -1,0 +1,7 @@
+{
+  "name": "ph-u2-ej3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
