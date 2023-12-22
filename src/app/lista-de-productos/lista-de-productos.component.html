@@ -4,6 +4,10 @@
       <s *ngIf="p.comprado">{{ p.nombre }}</s>
       <span *ngIf="!p.comprado">{{ p.nombre }}</span>
     </ion-label>
-    <ion-checkbox [checked]="p.comprado" slot="end" aria-label="comprado" />
+    <ion-checkbox 
+      [checked]="p.comprado" 
+      (ionChange)="onCompradoChange(p, $event)"
+      slot="end" 
+      aria-label="comprado" />
   </ion-item>  
 </ion-list>

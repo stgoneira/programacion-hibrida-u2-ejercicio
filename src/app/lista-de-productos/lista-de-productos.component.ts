@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import {IonList, IonItem, IonLabel, IonCheckbox} 
+import {IonList, IonItem, IonLabel, IonCheckbox, CheckboxChangeEventDetail} 
                           from '@ionic/angular/standalone'
 import { Producto } from '../modelo/producto'
+import { IonCheckboxCustomEvent } from '@ionic/core'
 
 @Component({
   selector: 'app-lista-de-productos',
@@ -13,15 +14,16 @@ import { Producto } from '../modelo/producto'
 })
 export class ListaDeProductosComponent  implements OnInit {
 
-  productos:Producto[] = [
-    new Producto("Arroz", false)
-    ,new Producto("Salsa de Tomates", true)
-    ,new Producto("Espirales", false)
-    ,new Producto("Agua mineral", true)
-  ]
+  @Input() productos:Producto[] = []
+  @Output() onChange = new EventEmitter<Producto>()
 
   constructor() { }
 
   ngOnInit() {}
 
+  onCompradoChange(p:Producto, $event: IonCheckboxCustomEvent<CheckboxChangeEventDetail<any>>) {
+    const comprado = $event.detail.checked 
+    p.comprado = comprado 
+    this.onChange.emit(p)
+  }
 }
