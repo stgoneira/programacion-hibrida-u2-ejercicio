@@ -1,15 +1,26 @@
-<ion-list>
+<ion-list lines="none">
   <ion-item>
     <ion-input 
-      [(ngModel)]="producto"
+      [(ngModel)]="producto"     
+      required="required" 
+      minlength="2"
+      #productoInput="ngModel"
       label="Producto por comprar" 
       placeholder="Spaghetti" 
       labelPlacement="stacked" />
-        <ion-button 
-          (click)="agregarProducto()"
+        <ion-button
+          [disabled]="!productoInput.valid" 
+          (click)="agregarProducto();productoInput.control.markAsPristine();productoInput.control.markAsUntouched()"
           slot="end" 
-          fill="clear">
+          fill="clear"
+          aria-label="Botón para agregar producto">
             <ion-icon slot="icon-only" name="add-circle-outline" />
         </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-text 
+      [hidden]="productoInput.valid || productoInput.pristine"
+      color="danger"
+    >Escriba un producto de 2 o más letras!</ion-text>
   </ion-item>
 </ion-list>

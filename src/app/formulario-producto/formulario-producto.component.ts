@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
-import { IonList, IonItem, IonInput, IonButton, IonIcon } from '@ionic/angular/standalone'
+import { IonList, IonItem, IonInput, IonButton, IonIcon, IonText } from '@ionic/angular/standalone'
 import { addIcons } from 'ionicons'
 import { addCircleOutline } from 'ionicons/icons'
 import { FormsModule } from '@angular/forms'
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms'
   templateUrl: './formulario-producto.component.html',
   styleUrls: ['./formulario-producto.component.scss'],
   standalone: true,
-  imports: [FormsModule, IonList, IonItem, IonInput, IonButton, IonIcon]
+  imports: [FormsModule, IonList, IonItem, IonInput, IonButton, IonIcon, IonText]
 })
 export class FormularioProductoComponent  implements OnInit {
 
