@@ -31,9 +31,9 @@ export class ListaDeComprasComponent  implements OnInit {
     this.actualizar()
   }
 
-  actualizar() {
+  async actualizar() {
     console.log("actualizando...")
-    this.ordenarAlfabeticamente = this.configuracionService.ordenarRegistros()
+    this.ordenarAlfabeticamente = await this.configuracionService.ordenarRegistros()
     if( this.ordenarAlfabeticamente ) {
       this.productos = this.productoService.getProductosOrdenadosAlfabeticamente() 
     } else {

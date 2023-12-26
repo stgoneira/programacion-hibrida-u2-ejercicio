@@ -20,13 +20,13 @@ export class ConfiguracionPage implements OnInit {
     private configuracionService:ConfiguracionService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     console.log("ConfiguracionPage::ngOnInit")
-    this.ordenarRegistrosAlfabeticamente = this.configuracionService.ordenarRegistros()
+    this.ordenarRegistrosAlfabeticamente = await this.configuracionService.ordenarRegistros()
   }
 
-  onCambioEnConfiguracionDeOrden($event: IonToggleCustomEvent<ToggleChangeEventDetail<any>>) {
+  async onCambioEnConfiguracionDeOrden($event: IonToggleCustomEvent<ToggleChangeEventDetail<any>>) {
     //const ordenar = $event.detail.checked        
-    this.configuracionService.setOrdenarRegistros(this.ordenarRegistrosAlfabeticamente)
+    await this.configuracionService.setOrdenarRegistros(this.ordenarRegistrosAlfabeticamente)
   }
 }
