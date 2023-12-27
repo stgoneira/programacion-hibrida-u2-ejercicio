@@ -1,7 +1,5 @@
-export class Producto {
-    constructor(
-        public id:number,
-        public nombre:string = "",
-        public comprado:boolean = false 
-    ){}
+export interface Producto {    
+    id?:number
+    nombre:string
+    comprado:boolean
 }
